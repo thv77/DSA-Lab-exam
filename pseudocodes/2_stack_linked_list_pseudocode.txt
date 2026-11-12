@@ -1,0 +1,46 @@
+PSEUDOCODE 2: STACK USING LINKED LIST
+
+BEGIN
+    top = NULL
+    REPEAT
+        DISPLAY menu: 1 Push, 2 Pop, 3 Peek, 4 Display, 5 Check Underflow, 6 Exit
+        READ choice
+        CASE choice OF
+            1: CREATE newnode
+               READ value
+               newnode.data = value
+               newnode.next = top
+               top = newnode
+            2: IF top == NULL THEN
+                   PRINT "Stack Underflow"
+               ELSE
+                   p = top
+                   PRINT p.data
+                   top = top.next
+                   FREE p
+               END IF
+            3: IF top == NULL THEN
+                   PRINT "Stack is empty"
+               ELSE
+                   PRINT top.data
+               END IF
+            4: IF top == NULL THEN
+                   PRINT "Stack is empty"
+               ELSE
+                   p = top
+                   WHILE p != NULL
+                       PRINT p.data
+                       p = p.next
+                   END WHILE
+               END IF
+            5: IF top == NULL THEN
+                   PRINT "Underflow: stack is empty"
+               ELSE
+                   PRINT "No underflow"
+               END IF
+            6: EXIT
+            ELSE: PRINT "Invalid choice"
+        END CASE
+    UNTIL choice == 6
+    FREE all remaining nodes
+END
