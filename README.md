@@ -20,7 +20,9 @@ DSA-Lab-exam/
     ├── 3_dfs_adjacency_matrix_pseudocode.txt
     ├── 4_dfs_from_edges_pseudocode.txt
     ├── 5_patient_queue_pseudocode.txt
-    └── 6_merge_linked_lists_pseudocode.txt
+    ├── 6_merge_linked_lists_pseudocode.txt
+    ├── 8_bfs_read_matrix_pseudocode.txt
+    └── 9_bfs_read_edges_pseudocode.txt
 ```
 
 ## Programs Included
@@ -33,6 +35,8 @@ DSA-Lab-exam/
 | 4 | [DFS From Edges](programs/4_dfs_from_edges.c) | [View pseudocode](pseudocodes/4_dfs_from_edges_pseudocode.txt) | Graph representation and DFS |
 | 5 | [Patient Queue](programs/5_patient_queue.c) | [View pseudocode](pseudocodes/5_patient_queue_pseudocode.txt) | Queue using Linked List |
 | 6 | [Merge Linked Lists](programs/6_merge_linked_lists.c) | [View pseudocode](pseudocodes/6_merge_linked_lists_pseudocode.txt) | Merging two singly linked lists |
+| 8 | [BFS Using Adjacency Matrix](programs/8_bfs_read_matrix.c) | [View pseudocode](pseudocodes/8_bfs_read_matrix_pseudocode.txt) | Breadth First Search using a queue |
+| 9 | [BFS From Vertices and Edges](programs/9_bfs_read_edges.c) | [View pseudocode](pseudocodes/9_bfs_read_edges_pseudocode.txt) | Construct adjacency matrix and perform BFS |
 
 ## How to Compile and Run
 
