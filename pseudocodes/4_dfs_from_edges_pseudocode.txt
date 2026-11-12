@@ -1,0 +1,87 @@
+PSEUDOCODE 4: DFS FROM VERTICES AND EDGES (ITERATIVE, EXPLICIT STACK)
+
+BEGIN
+    DECLARE adj[20][20], visited[20], seq[20], stack[20], nxt[20], edges[400][2]
+    n = 0
+    e = 0
+    built = false
+    performed = false
+    REPEAT
+        DISPLAY menu: 1 Read graph, 2 Build matrix, 3 Perform DFS, 4 Display, 5 Exit
+        READ choice
+        CASE choice OF
+            1: READ n
+               READ e
+               IF n or e is invalid THEN
+                   PRINT "Invalid"
+               ELSE
+                   FOR i = 0 TO e-1
+                       READ edges[i][0], edges[i][1]
+                   END FOR
+                   built = false
+                   performed = false
+               END IF
+            2: IF n == 0 THEN
+                   PRINT "Read graph first"
+               ELSE
+                   SET every adj[i][j] = 0
+                   FOR i = 0 TO e-1
+                       u = edges[i][0]
+                       v = edges[i][1]
+                       IF u or v is out of range THEN
+                           PRINT "Skipping invalid edge"
+                       ELSE
+                           adj[u][v] = 1
+                           adj[v][u] = 1
+                       END IF
+                   END FOR
+                   built = true
+                   PRINT adjacency matrix
+               END IF
+            3: IF NOT built THEN
+                   PRINT "Build matrix first"
+               ELSE
+                   READ start
+                   IF start < 0 OR start >= n THEN
+                       PRINT "Invalid vertex"
+                   ELSE
+                       FOR i = 0 TO n-1
+                           visited[i] = 0
+                           nxt[i] = 0
+                       END FOR
+                       cnt = 0
+                       visited[start] = 1
+                       seq[cnt] = start
+                       cnt = cnt + 1
+                       top = 0
+                       stack[0] = start
+                       WHILE top >= 0
+                           v = stack[top]
+                           i = nxt[v]
+                           WHILE i < n AND NOT (adj[v][i] == 1 AND visited[i] == 0)
+                               i = i + 1
+                           END WHILE
+                           nxt[v] = i + 1
+                           IF i < n THEN
+                               visited[i] = 1
+                               seq[cnt] = i
+                               cnt = cnt + 1
+                               top = top + 1
+                               stack[top] = i
+                           ELSE
+                               top = top - 1
+                           END IF
+                       END WHILE
+                       performed = true
+                   END IF
+               END IF
+            4: IF NOT performed THEN
+                   PRINT "Perform DFS first"
+               ELSE
+                   PRINT seq[0..cnt-1]
+               END IF
+            5: EXIT
+            ELSE: PRINT "Invalid choice"
+        END CASE
+    UNTIL choice == 5
+END
