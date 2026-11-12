@@ -1,0 +1,50 @@
+PSEUDOCODE 5: PATIENT QUEUE USING LINKED LIST
+
+BEGIN
+    front = NULL
+    rear = NULL
+    REPEAT
+        DISPLAY menu: 1 Add, 2 Delete, 3 Front, 4 Display all, 5 Exit
+        READ choice
+        CASE choice OF
+            1: CREATE p
+               READ p.id
+               p.next = NULL
+               IF rear == NULL THEN
+                   front = p
+                   rear = p
+               ELSE
+                   rear.next = p
+                   rear = p
+               END IF
+            2: IF front == NULL THEN
+                   PRINT "Queue is empty"
+               ELSE
+                   p = front
+                   PRINT p.id, "removed"
+                   front = front.next
+                   IF front == NULL THEN
+                       rear = NULL
+                   END IF
+                   FREE p
+               END IF
+            3: IF front == NULL THEN
+                   PRINT "Queue is empty"
+               ELSE
+                   PRINT front.id
+               END IF
+            4: IF front == NULL THEN
+                   PRINT "Queue is empty"
+               ELSE
+                   p = front
+                   WHILE p != NULL
+                       PRINT p.id
+                       p = p.next
+                   END WHILE
+               END IF
+            5: EXIT
+            ELSE: PRINT "Invalid choice"
+        END CASE
+    UNTIL choice == 5
+    FREE all remaining nodes
+END
