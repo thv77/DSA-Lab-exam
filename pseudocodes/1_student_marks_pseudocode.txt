@@ -1,0 +1,56 @@
+PSEUDOCODE 1: STUDENT MARKS (SELECTION SORT AND LINEAR SEARCH)
+
+BEGIN
+    DECLARE marks[100], n = 0
+    REPEAT
+        DISPLAY menu: 1 Read, 2 Sort, 3 Search, 4 Display, 5 Exit
+        READ choice
+        CASE choice OF
+            1: READ n
+               IF n < 1 OR n > 100 THEN
+                   PRINT "Invalid n"
+                   n = 0
+               ELSE
+                   FOR i = 0 TO n-1
+                       READ marks[i]
+                   END FOR
+               END IF
+            2: IF n == 0 THEN
+                   PRINT "Read marks first"
+               ELSE
+                   FOR i = 0 TO n-2
+                       min = i
+                       FOR j = i+1 TO n-1
+                           IF marks[j] < marks[min] THEN
+                               min = j
+                           END IF
+                       END FOR
+                       SWAP marks[i] AND marks[min]
+                   END FOR
+                   PRINT "Marks sorted"
+               END IF
+            3: IF n == 0 THEN
+                   PRINT "Read marks first"
+               ELSE
+                   READ key
+                   found = false
+                   FOR i = 0 TO n-1
+                       IF marks[i] == key THEN
+                           PRINT "Found at position", i+1
+                           found = true
+                       END IF
+                   END FOR
+                   IF NOT found THEN
+                       PRINT "Not found"
+                   END IF
+               END IF
+            4: IF n == 0 THEN
+                   PRINT "No marks"
+               ELSE
+                   PRINT all marks[0..n-1]
+               END IF
+            5: EXIT
+            ELSE: PRINT "Invalid choice"
+        END CASE
+    UNTIL choice == 5
+END
