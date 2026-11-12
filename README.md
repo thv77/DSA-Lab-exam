@@ -37,6 +37,7 @@ DSA-Lab-exam/
 | 6 | [Merge Linked Lists](programs/6_merge_linked_lists.c) | [View pseudocode](pseudocodes/6_merge_linked_lists_pseudocode.txt) | Merging two singly linked lists |
 | 8 | [BFS Using Adjacency Matrix](programs/8_bfs_read_matrix.c) | [View pseudocode](pseudocodes/8_bfs_read_matrix_pseudocode.txt) | Breadth First Search using a queue |
 | 9 | [BFS From Vertices and Edges](programs/9_bfs_read_edges.c) | [View pseudocode](pseudocodes/9_bfs_read_edges_pseudocode.txt) | Construct adjacency matrix and perform BFS |
+| 10 | [Singly Linked List](programs/10_linked_list.c) | [View pseudocode](pseudocodes/10_linked_list_pseudocode.txt) | Insert, delete, search, display and reverse |
 
 ## How to Compile and Run
 
