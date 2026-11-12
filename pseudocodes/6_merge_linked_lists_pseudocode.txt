@@ -1,0 +1,47 @@
+PSEUDOCODE 6: MERGE TWO SINGLY LINKED LISTS
+
+BEGIN
+    head[0] = NULL
+    head[1] = NULL
+    FOR w = 0 TO 1
+        READ n
+        FOR i = 1 TO n
+            READ v
+            CREATE newnode with data = v, next = NULL
+            IF head[w] == NULL OR v < head[w].data THEN
+                newnode.next = head[w]
+                head[w] = newnode
+            ELSE
+                p = head[w]
+                WHILE p.next != NULL AND p.next.data <= v
+                    p = p.next
+                END WHILE
+                newnode.next = p.next
+                p.next = newnode
+            END IF
+        END FOR
+    END FOR
+    PRINT list 1 and list 2
+    a = head[0]
+    b = head[1]
+    tail = address of dummy node
+    dummy.next = NULL
+    WHILE a != NULL AND b != NULL
+        IF a.data <= b.data THEN
+            tail.next = a
+            a = a.next
+        ELSE
+            tail.next = b
+            b = b.next
+        END IF
+        tail = tail.next
+    END WHILE
+    IF a != NULL THEN
+        tail.next = a
+    ELSE
+        tail.next = b
+    END IF
+    merged = dummy.next
+    PRINT merged list
+    FREE all nodes
+END
