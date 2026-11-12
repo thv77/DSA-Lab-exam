@@ -1,0 +1,159 @@
+PSEUDOCODE 10: MENU-DRIVEN SINGLY LINKED LIST
+
+BEGIN
+    head = NULL
+    REPEAT
+        DISPLAY menu: 1 Insert at beginning, 2 Insert at end, 3 Insert at position,
+                      4 Delete from beginning, 5 Delete from end, 6 Delete at position,
+                      7 Search, 8 Display, 9 Reverse, 10 Exit
+        READ choice
+
+        count = 0
+        p = head
+        WHILE p != NULL
+            count = count + 1
+            p = p.next
+        END WHILE
+
+        CASE choice OF
+            1: CREATE newnode
+               READ value
+               newnode.data = value
+               newnode.next = head
+               head = newnode
+
+            2: CREATE newnode
+               READ value
+               newnode.data = value
+               newnode.next = NULL
+               IF head == NULL THEN
+                   head = newnode
+               ELSE
+                   p = head
+                   WHILE p.next != NULL
+                       p = p.next
+                   END WHILE
+                   p.next = newnode
+               END IF
+
+            3: READ pos
+               IF pos < 1 OR pos > count + 1 THEN
+                   PRINT "Invalid position"
+               ELSE
+                   CREATE newnode
+                   READ value
+                   newnode.data = value
+                   IF pos == 1 THEN
+                       newnode.next = head
+                       head = newnode
+                   ELSE
+                       p = head
+                       FOR i = 1 TO pos - 2
+                           p = p.next
+                       END FOR
+                       newnode.next = p.next
+                       p.next = newnode
+                   END IF
+               END IF
+
+            4: IF head == NULL THEN
+                   PRINT "List is empty"
+               ELSE
+                   p = head
+                   PRINT p.data, "deleted"
+                   head = head.next
+                   FREE p
+               END IF
+
+            5: IF head == NULL THEN
+                   PRINT "List is empty"
+               ELSE IF head.next == NULL THEN
+                   PRINT head.data, "deleted"
+                   FREE head
+                   head = NULL
+               ELSE
+                   p = head
+                   WHILE p.next.next != NULL
+                       p = p.next
+                   END WHILE
+                   PRINT p.next.data, "deleted"
+                   FREE p.next
+                   p.next = NULL
+               END IF
+
+            6: IF head == NULL THEN
+                   PRINT "List is empty"
+               ELSE
+                   READ pos
+                   IF pos < 1 OR pos > count THEN
+                       PRINT "Invalid position"
+                   ELSE
+                       IF pos == 1 THEN
+                           p = head
+                           head = head.next
+                       ELSE
+                           prev = head
+                           FOR i = 1 TO pos - 2
+                               prev = prev.next
+                           END FOR
+                           p = prev.next
+                           prev.next = p.next
+                       END IF
+                       PRINT p.data, "deleted"
+                       FREE p
+                   END IF
+               END IF
+
+            7: IF head == NULL THEN
+                   PRINT "List is empty"
+               ELSE
+                   READ value
+                   found = false
+                   pos = 1
+                   p = head
+                   WHILE p != NULL
+                       IF p.data == value THEN
+                           PRINT "Found at position", pos
+                           found = true
+                       END IF
+                       pos = pos + 1
+                       p = p.next
+                   END WHILE
+                   IF NOT found THEN
+                       PRINT "Not found"
+                   END IF
+               END IF
+
+            8: IF head == NULL THEN
+                   PRINT "List is empty"
+               ELSE
+                   PRINT count
+                   p = head
+                   WHILE p != NULL
+                       PRINT p.data
+                       p = p.next
+                   END WHILE
+               END IF
+
+            9: IF head == NULL THEN
+                   PRINT "List is empty"
+               ELSE
+                   prev = NULL
+                   p = head
+                   WHILE p != NULL
+                       next = p.next
+                       p.next = prev
+                       prev = p
+                       p = next
+                   END WHILE
+                   head = prev
+                   PRINT "List reversed"
+               END IF
+
+            10: EXIT
+
+            ELSE: PRINT "Invalid choice"
+        END CASE
+    UNTIL choice == 10
+    FREE all remaining nodes
+END
