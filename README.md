@@ -25,14 +25,14 @@ DSA-Lab-exam/
 
 ## Programs Included
 
-| No. | Program | Main Concept |
-|---|---|---|
-| 1 | Student Marks | Selection Sort and Linear Search |
-| 2 | Stack Using Linked List | Stack operations |
-| 3 | DFS Using Adjacency Matrix | Depth First Search |
-| 4 | DFS From Edges | Graph representation and DFS |
-| 5 | Patient Queue | Queue using Linked List |
-| 6 | Merge Linked Lists | Merging two singly linked lists |
+| No. | Program | Pseudocode: | Main Concept |
+|---|---|---|---|
+| 1 | [Student Marks](programs/1_student_marks.c) | [View pseudocode](pseudocodes/1_student_marks_pseudocode.txt) | Selection Sort and Linear Search |
+| 2 | [Stack Using Linked List](programs/2_stack_linked_list.c) | [View pseudocode](pseudocodes/2_stack_linked_list_pseudocode.txt) | Stack operations |
+| 3 | [DFS Using Adjacency Matrix](programs/3_dfs_adjacency_matrix.c) | [View pseudocode](pseudocodes/3_dfs_adjacency_matrix_pseudocode.txt) | Depth First Search |
+| 4 | [DFS From Edges](programs/4_dfs_from_edges.c) | [View pseudocode](pseudocodes/4_dfs_from_edges_pseudocode.txt) | Graph representation and DFS |
+| 5 | [Patient Queue](programs/5_patient_queue.c) | [View pseudocode](pseudocodes/5_patient_queue_pseudocode.txt) | Queue using Linked List |
+| 6 | [Merge Linked Lists](programs/6_merge_linked_lists.c) | [View pseudocode](pseudocodes/6_merge_linked_lists_pseudocode.txt) | Merging two singly linked lists |
 
 ## How to Compile and Run
 
@@ -49,7 +49,7 @@ You need a C compiler such as GCC.
 
    **Windows**
    ```bash
-   .\student_marks.exe
+   .\\student_marks.exe
    ```
 
    **Linux / macOS**
