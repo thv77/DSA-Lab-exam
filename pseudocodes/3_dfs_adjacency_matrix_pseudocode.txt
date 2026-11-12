@@ -1,0 +1,65 @@
+PSEUDOCODE 3: DFS USING ADJACENCY MATRIX (ITERATIVE, EXPLICIT STACK)
+
+BEGIN
+    DECLARE adj[20][20], visited[20], seq[20], stack[20], nxt[20]
+    n = 0
+    start = -1
+    haveMatrix = false
+    REPEAT
+        DISPLAY menu: 1 Vertices, 2 Matrix, 3 Start vertex, 4 Display DFS, 5 Exit
+        READ choice
+        CASE choice OF
+            1: READ n
+               haveMatrix = false
+               IF n < 1 OR n > 20 THEN
+                   PRINT "Invalid"
+                   n = 0
+               END IF
+            2: IF n == 0 THEN
+                   PRINT "Read vertices first"
+               ELSE
+                   FOR i = 0 TO n-1
+                       FOR j = 0 TO n-1
+                           READ adj[i][j]
+                       END FOR
+                   END FOR
+                   haveMatrix = true
+               END IF
+            3: READ start
+            4: IF n == 0 OR NOT haveMatrix OR start < 0 OR start >= n THEN
+                   PRINT "Provide vertices, matrix and valid start first"
+               ELSE
+                   FOR i = 0 TO n-1
+                       visited[i] = 0
+                       nxt[i] = 0
+                   END FOR
+                   cnt = 0
+                   visited[start] = 1
+                   seq[cnt] = start
+                   cnt = cnt + 1
+                   top = 0
+                   stack[0] = start
+                   WHILE top >= 0
+                       v = stack[top]
+                       i = nxt[v]
+                       WHILE i < n AND NOT (adj[v][i] == 1 AND visited[i] == 0)
+                           i = i + 1
+                       END WHILE
+                       nxt[v] = i + 1
+                       IF i < n THEN
+                           visited[i] = 1
+                           seq[cnt] = i
+                           cnt = cnt + 1
+                           top = top + 1
+                           stack[top] = i
+                       ELSE
+                           top = top - 1
+                       END IF
+                   END WHILE
+                   PRINT seq[0..cnt-1]
+               END IF
+            5: EXIT
+            ELSE: PRINT "Invalid choice"
+        END CASE
+    UNTIL choice == 5
+END
